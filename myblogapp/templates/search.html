@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    h3{
+        color: red;
+    }
+</style>
+<p><a href="/">Go back</a></p>
+    {% if search %}
+        {% for blog in blog %}
+            <h3>{{blog.User.username}}</h3>
+            <a style="text-decoration:none; color: red;" href="/posts/{{blog.id}}">
+                <h2>{{blog.heading}}</h2>
+            </a>
+            {{blog.body|truncatewords:10}}
+            {{blog.time_created}}
+            <hr>
+        {% endfor %}
+    {% else %}
+       <h2>You forgot to search :(</h2>
+    {% endif %}       
+
+{% endblock %}

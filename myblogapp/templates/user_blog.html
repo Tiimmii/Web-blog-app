@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content%}
+<p><a href="/">Go back</a></p>
+<style>
+    h5{
+        color: red;
+    }
+</style>
+<form method="POST" action="">
+    {% csrf_token %}
+    {% for message in messages%}
+    <h5>{{message}}</h5>
+    {% endfor %}
+    Heading<br>
+    <input type="text" name="heading"><br>
+    Body<br>
+    <textarea name="body" rows="50" cols="100"></textarea><br>
+    <input type="submit">
+</form>
+
+
+
+
+
+
+
+{% endblock %}

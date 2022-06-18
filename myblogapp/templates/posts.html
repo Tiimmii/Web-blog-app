@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My blog</title>
+    </head>
+    <body>
+        <p><a href="/">Go back</a></p>
+        <style>
+            h2{
+                color: red;
+            }
+            h3{
+                color: aqua;
+            }
+        </style>
+
+        <h1>My blog</h1>
+        <hr>
+        
+        <ul>
+    
+            <li>
+                <h3>{{blog.User.username}}</h3><h5>{{blog.time_created}}</h5>
+                    <h2>{{blog.heading}}</h2>
+                </a>
+                <h4>{{blog.body}}</h4>
+            </li>
+             
+        </ul>
+            
+        
+        <hr>
+        
+
+    </body>
+</html>
