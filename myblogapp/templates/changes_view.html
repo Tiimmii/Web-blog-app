@@ -1,9 +1,26 @@
 {% extends 'index.html' %}
 
-{% block contents %}
-{% for view in view %}
-    {{view.user.heading}}
-    {{view.body}}
-    {{view.time_created}}
+{% block content %}
+<p><a href="/">Go back</a></p>
+{% for blog in view %}
+<ul>
+            
+    <li>
+        <style>
+            h3{
+                color: red;
+            }
+        </style>
+        
+        <a style="text-decoration:none; color: red;" href="/user_posts/{{blog.id}}">
+            <h3>{{blog.user.username}}</h3>
+            <h2>{{blog.heading}}</h2>
+            </a>
+        <h4>{{blog.time_created}}</h4>
+        <h4>{{blog.body|truncatewords:10}}</h4>
+        <hr>
+    </li>
+        
+</ul>
 {% endfor %}
 {% endblock %}

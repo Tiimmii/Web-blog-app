@@ -114,8 +114,19 @@ def login(request):
         return render(request, 'login.html')
 
 def changes(request):
-    changes_view = Post.objects.all()
+    changes_view = Post.objects.filter(user=request.user)
     return render(request, 'changes_view.html', {'view':changes_view})
+
+def user_posts(request, pk):
+    blog = Post.objects.get(id=pk)
+    return render(request, 'user_posts.html',{'blog':blog})
+
+def edit_blog(request, pk):
+    pass
+
+def delete_blog(request, pk):
+    pass
+
     
     
 
