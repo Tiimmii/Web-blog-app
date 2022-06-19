@@ -3,6 +3,7 @@ from . models import Post
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from . models import User
+from . forms import PostCreateForm, PostEditForm
 
 def index(request):
     blog = Post.objects.all()
@@ -14,27 +15,34 @@ def posts(request, pk):
 
 
 def user_blog(request):
-    if request.method == 'POST':
-        heading = request.POST['heading']
-        body = request.POST['body']
-        current_user=request.user
-        
-        if len(heading)>0:
-            if len(body)>0:
-                new_post = Post.objects.create(heading=heading, body=body, user=current_user )
-                new_post.save()
+    form = PostCreateForm()
 
-                messages.info(request, 'blog added succesfully')
-                return redirect('/')
+    if request.method == 'POST':
+        form=PostCreateForm(request.POST)
+        if form.is_valid():
+            heading=form.cleaned_data['heading']
+            body=form.cleaned_data['body']       
+            current_user=request.user
+        
+            if len(heading)>0:
+                if len(body)>0:
+                    new_post = Post.objects.create(heading=heading, body=body, user=current_user )
+                    new_post.save()
+
+                    messages.success(request, 'blog added succesfully')
+                    return redirect('/')
+                else:
+                    messages.info(request, 'please type a body')
+                    return redirect('user_blog')
             else:
-                messages.info(request, 'please type a body')
+                messages.info(request, 'please type a heading')
                 return redirect('user_blog')
         else:
-            messages.info(request, 'please type a heading')
+            messages.info('unsuccessful :(')
             return redirect('user_blog')
     
     else:
-        return render(request, 'user_blog.html')
+        return render(request, 'user_blog.html', {'form':form})
 
 def search(request):
     if request.method=='POST':
@@ -122,11 +130,26 @@ def user_posts(request, pk):
     return render(request, 'user_posts.html',{'blog':blog})
 
 def edit_blog(request, pk):
-    pass
+    blog=Post.objects.get(id=pk)
+    form = PostEditForm(instance=blog)
+    if request.method =='POST':       
+        form = PostEditForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'blog updated successfully')
+            return redirect('/')
+        else:
+            messages.info(request, 'invalid form')
+            return redirect('edit_blog')
+    else:
+        return render(request, 'edit_blog.html', {'form':form})
+
 
 def delete_blog(request, pk):
-    pass
-
+    blog = Post.objects.get(id=pk)
+    blog.delete()
+    messages.success(request, 'blog deleted successfully')
+    return redirect('/')
     
     
 

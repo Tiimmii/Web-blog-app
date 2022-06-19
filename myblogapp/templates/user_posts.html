@@ -4,7 +4,7 @@
       <title>My blog</title>
     </head>
     <body>
-        <p><a href="/">Go back</a></p>
+        <p><a href="/">Go Home</a></p>
         <style>
             h2{
                 color: red;
@@ -26,12 +26,15 @@
                 <h4>{{blog.body}}</h4>
             </li>
 
-            <p><a href="{% url 'edit_blog' %}"><button type="submit">edit blog</button></a></p>     <p><a href="{% url 'delete_blog' %}"><button type="submit">delete blog</button></a></p> 
+        <a href="/edit_blog/{{blog.id}}"><button type="submit">edit blog</button></a>     <a href="/delete_blog/{{blog.id}}"><button type="submit">delete blog</button></a>
         
              
         </ul>
-            
-        
+            {% if empty %}
+            <h3>
+                .....mmmmm Nothing to see here 
+            </h3>
+            {% endif %}
         <hr>
         
 
