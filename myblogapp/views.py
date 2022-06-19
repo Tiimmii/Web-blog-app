@@ -3,9 +3,6 @@ from . models import Post
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from . models import User
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
 
 def index(request):
     blog = Post.objects.all()
@@ -117,7 +114,10 @@ def login(request):
         return render(request, 'login.html')
 
 def changes(request):
-    pass
+    changes_view = Post.objects.all()
+    return render(request, 'changes_view.html', {'view':changes_view})
+    
+    
 
 
 

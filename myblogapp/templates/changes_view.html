@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+{% block contents %}
+{% for view in view %}
+    {{view.user.heading}}
+    {{view.body}}
+    {{view.time_created}}
+{% endfor %}
+{% endblock %}
