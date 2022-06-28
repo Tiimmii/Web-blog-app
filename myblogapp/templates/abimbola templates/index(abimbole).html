@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+
+    <style>
+      *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(images/olupic1.jpg);
+    background-image: linear-gradient(rgb(4, 9, 30));
+    background-size:cover;
+    position:relative;
+    background-position: center;
+}
+
+nav{
+    display: flex;
+    padding: 3% 7%;
+    justify-content: space-between;
+}
+.welcome{
+    font-size: 40px;
+    font-weight: 700;
+}
+.nav-links{
+    flex: 1;
+    text-align: center;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 6px 12px;
+    padding-top: 50px;
+}
+.nav-links ul li a{
+    text-decoration: none;
+    color: rgb(26, 21, 21);
+    font-size: 16px;
+    font-weight: 600;
+}
+.nav-links ul li::after{
+    content: '';
+    display:block;
+    width: 0px;
+    height: 3px;
+    transition: 0.5s;
+    margin: auto;
+    background: peachpuff;
+}
+.nav-links ul li:hover::after{
+    width: 30px;
+}
+.search{
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 3% 1%;
+    border-radius: 30px;
+}
+.search input{
+    width: 100px;
+    height: 30px;
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    padding: 10px;
+}
+section{
+    box-sizing: border-box;
+    width: 70%;
+    background-color: #fff;
+    align-items: center;
+    margin: auto;
+    padding: 50px;
+    border-radius: 40px;
+}
+.blog{
+    color: rgb(62, 61, 61);
+}
+.blog h2{
+    font-weight: 900;
+    font-size: 36px;
+    width: 0;
+    margin-left: 30px;
+}
+.blog h3{
+    font-weight: 500;
+    font-size: 30px;
+    width: 0;
+    margin-left: 30px;
+}
+.blog p{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.date{
+    margin-left: 600px;
+    text-align: right;
+}
+footer{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(3, 52, 52);
+    padding: 90px 0;
+    color: #ffffff;
+    
+}
+.footer-col h1{
+    text-align: center;
+    margin: auto;
+}
+hr{
+  margin-top: 12px;
+}
+.social-links{
+    margin-top: 50px;
+}
+.social-links a ion-icon{
+    margin:0 10px 10px 0;
+    display: inline-block;
+    margin-left: 280px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    border: 1px #fff solid;
+    padding: 12px;
+}
+.search-icon{
+    color: #fff;
+    font-size: 25px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.search-icon:hover{
+    color: peachpuff;
+}
+ /* Responsiveness */
+
+ @media(max-width:700px){
+    .welcome{
+        font-size: 40px;
+        font-weight: 500;
+    }
+    .search{
+        margin-top: 20px;
+        box-sizing: border-box;
+        border-radius: 30px;
+    }
+    .search input{
+        width: 100px;
+        height: 15px;
+        border-radius: 20px;
+        outline: none;
+        border: none; 
+    }
+    .header{
+        background-color: #000;
+    }
+ }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <h2 class="welcome">
+          Welcome to <br />
+          Blog-App
+        </h2>
+
+        <div class="nav-links">
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="registration.html">PortFolio</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="search">
+          <input type="text" class="input-search" placeholder="Search" />
+          <ion-icon class="search-icon" name="search-outline"></ion-icon>
+        </div>
+      </nav>
+      <section>
+        <div class="blog">
+          <h2>#Username</h2>
+          <h3>#Title</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+            natus facilis tenetur. Ea quis recusandae exercitationem unde quos
+            at quod. Repudiandae sint perspiciatis alias, nisi expedita
+            reiciendis consequatur illo unde, in laudantium hic voluptas
+            inventore nemo dolores, at omnis. Eligendi nesciunt incidunt iusto
+            voluptatibus a dolor deserunt enim dolores voluptas. <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            nam, quas expedita et laborum adipisci atque aliquid molestiae magni
+            iusto eum similique amet unde pariatur quia, laudantium reiciendis
+            perspiciatis dolores?
+          </p>
+          <p class="date">DD-MM-YY</p>
+
+          <h2>#Username</h2>
+          <h3>#Title</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+            natus facilis tenetur. Ea quis recusandae exercitationem unde quos
+            at quod. Repudiandae sint perspiciatis alias, nisi expedita
+            reiciendis consequatur illo unde, in laudantium hic voluptas
+            inventore nemo dolores, at omnis. Eligendi nesciunt incidunt iusto
+            voluptatibus a dolor deserunt enim dolores voluptas. <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            nam, quas expedita et laborum adipisci atque aliquid molestiae magni
+            iusto eum similique amet unde pariatur quia, laudantium reiciendis
+            perspiciatis dolores?
+          </p>
+          <p class="date">DD-MM-YY</p>
+
+          <h2>#Username</h2>
+          <h3>#Title</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+            natus facilis tenetur. Ea quis recusandae exercitationem unde quos
+            at quod. Repudiandae sint perspiciatis alias, nisi expedita
+            reiciendis consequatur illo unde, in laudantium hic voluptas
+            inventore nemo dolores, at omnis. Eligendi nesciunt incidunt iusto
+            voluptatibus a dolor deserunt enim dolores voluptas. <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            nam, quas expedita et laborum adipisci atque aliquid molestiae magni
+            iusto eum similique amet unde pariatur quia, laudantium reiciendis
+            perspiciatis dolores?
+          </p>
+          <p class="date">DD-MM-YY</p>
+        </div>
+      </section>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h1 style="margin-bottom: -0px;">About</h1><br>
+          <hr style="margin-top: -20px; width: 20%; margin: auto;">
+          <p>
+            <h3 style="margin-top: 40px;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti cupiditate, animi vel dicta quam, optio pariatur in maxime 
+              deserunt rerum tempore nam iure quis molestias quos, beatae sint quia quas!. Lorem ipsum dolor sit amet consectetur adipisicing 
+              elit. Ipsa nihil esse eos quis vitae provident nostrum enim, impedit pariatur illo quasi iusto voluptates, vero consequuntur eaque distinctio. Consectetur, tempora iste!
+            </h3>
+          </p>
+        </div>
+        <div class="footer-col">
+          <div class="social-links">
+            <a href=""><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="https://www.instagram.com/_abim.bola_/"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </div>
+      </div>
+    </div>
+  </footer>
+</html>
