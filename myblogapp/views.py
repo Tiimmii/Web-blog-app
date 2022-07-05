@@ -29,7 +29,6 @@ def user_blog(request):
                     new_post = Post.objects.create(heading=heading, body=body, user=current_user )
                     new_post.save()
 
-                    messages.success(request, 'blog added succesfully')
                     return redirect('/')
                 else:
                     messages.info(request, 'please type a body')
@@ -122,36 +121,46 @@ def login(request):
         return render(request, 'login.html')
 
 def changes(request):
-    changes_view = Post.objects.filter(user=request.user)
-    return render(request, 'changes_view.html', {'view':changes_view})
+    if request.user.is_authenticated:
+        changes_view = Post.objects.filter(user=request.user)
+        return render(request, 'changes_view.html', {'view':changes_view})
+    else:
+        messages.info(request,'Please login')
+        return redirect('login')
 
 def user_posts(request, pk):
     blog = Post.objects.get(id=pk)
     return render(request, 'user_posts.html',{'blog':blog})
 
 def edit_blog(request, pk):
-    blog=Post.objects.get(id=pk)
-    form = PostEditForm(instance=blog)
-    if request.method =='POST':       
-        form = PostEditForm(request.POST, instance=blog)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'blog updated successfully')
-            return redirect('/')
+    if request.user.is_authenticated:
+        blog=Post.objects.get(id=pk)
+        form = PostEditForm(instance=blog)
+        if request.method =='POST':       
+            form = PostEditForm(request.POST, instance=blog)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+            else:
+                messages.info(request, 'invalid form')
+                return redirect('edit_blog')
         else:
-            messages.info(request, 'invalid form')
-            return redirect('edit_blog')
+            return render(request, 'edit_blog.html', {'form':form})
     else:
-        return render(request, 'edit_blog.html', {'form':form})
-
+        messages.info(request,'Please login')
+        return redirect('login')
 
 def delete_blog(request, pk):
-    blog = Post.objects.get(id=pk)
-    blog.delete()
-    messages.success(request, 'blog deleted successfully')
-    return redirect('/')
+    if request.user.is_authenticated:
+        blog = Post.objects.get(id=pk)
+        blog.delete()
+        messages.success(request, 'blog deleted successfully')
+        return redirect('/')
+    else:
+        messages.info(request,'Please login')
+        return redirect('login')
     
-    
+
 
 
 

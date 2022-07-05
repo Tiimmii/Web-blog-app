@@ -1,166 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>login to Timmi's online shop</title>
-    
-   
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
     <style>
-      html, body {
-      display: flex;
-      justify-content: center;
-      height: 100%;
+      h5{
+          color: red
       }
-      body, div, h1, form, input, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 16px;
-      color: #666;
+  </style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Courier New", Courier, monospace;
       }
-      h1 {
-      padding: 10px 0;
-      font-size: 32px;
-      font-weight: 300;
-      text-align: center;
+      body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 150px;
+        padding-left: 400px;
+        background-image: url(images/olupic2.jpg);
+        background: linear-gradient(rgb(4, 9, 30));
+        background-size: cover;
+        position: relative;
+        background-position: center;
+        margin-top: -80px;
       }
-      p {
-      font-size: 12px;
+      .container {
+        max-width: 500px;
+        padding: 90px 60px;
+        position: relative;
+        border-radius: 25px;
+        background: transparent;
+        background-color: #fff;
       }
-      hr {
-      color: #a9a9a9;
-      opacity: 0.3;
+      .container form .user-details {
+        margin: 0px;
+        display: block;
       }
-      .main-block {
-      max-width: 340px; 
-      min-height: 460px; 
-      padding: 10px 0;
-      margin: auto;
-      border-radius: 5px; 
-      border: solid 1px #ccc;
-      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-      background: #ebebeb; 
+      form .user-details .user-input {
+        margin-top: 12px;
       }
-      form {
-      margin: 0 30px;
+      .user-details .user-input input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding-left: 17px;
+        border-bottom-width: 3px;
+        transition: 1s;
       }
-      .account-type, .gender {
-      margin: 15px 0;
+      .user-details .user-input input:focus,
+      .user-details .user-input input:valid {
+        border-color: #000;
       }
-      input[type=radio] {
-      display: none;
+
+      .forgot {
+        margin-top: 20px;
+        display: grid;
+        text-align: center;
       }
-      label#icon {
-      margin: 0;
-      border-radius: 5px 0 0 5px;
+      .forgot a {
+        text-decoration: none;
+        color: grey;
       }
-      label.radio {
-      position: relative;
-      display: inline-block;
-      padding-top: 4px;
-      margin-right: 20px;
-      text-indent: 30px;
-      overflow: visible;
-      cursor: pointer;
+      .btn {
+        margin: auto;
+        width: 50%;
+        align-items: center;
+        cursor: pointer;
       }
-      label.radio:before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #1c87c9;
+      .btn button {
+        width: 70%;
+        margin: 20px auto 0;
+        padding: 10px;
+        margin-left: 35px;
+        border-radius: 20px;
+        border: none;
+        background-color: peachpuff;
+        transition: all 0.5s ease;
       }
-      label.radio:after {
-      content: "";
-      position: absolute;
-      width: 9px;
-      height: 4px;
-      top: 8px;
-      left: 4px;
-      border: 3px solid #fff;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg);
-      opacity: 0;
+      .btn button a {
+        text-decoration: none;
+        color: grey;
       }
-      input[type=radio]:checked + label:after {
-      opacity: 1;
+      .btn button:hover {
+        background-color: rgb(199, 142, 92);
       }
-      input[type=text], input[type=password] {
-      width: calc(100% - 57px);
-      height: 36px;
-      margin: 13px 0 0 -5px;
-      padding-left: 10px; 
-      border-radius: 0 5px 5px 0;
-      border: solid 1px #cbc9c9; 
-      box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-      background: #fff; 
+
+      .all {
+        position: relative;
       }
-      input[type=password] {
-      margin-bottom: 15px;
-      }
-      #icon {
-      display: inline-block;
-      padding: 9.3px 15px;
-      box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-      background: #1c87c9;
-      color: #fff;
-      text-align: center;
-      }
-      .btn-block {
-      margin-top: 10px;
-      text-align: center;
-      }
-      button {
-      width: 100%;
-      padding: 10px 0;
-      margin: 10px auto;
-      border-radius: 5px; 
-      border: none;
-      background: #1c87c9; 
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-      }
-      button:hover {
-      background: #26a9e0;
+      .olu {
+        font-size: 10px;
+        font-weight: 200;
+        color: grey;
       }
     </style>
   </head>
   <body>
-    <div class="main-block">
-      <h1>Login to Timmi's web blog app</h1>
-      <style>
-        h5{
-            color: red
-        }
-    </style>
-      {% for message in messages%}
-      <h5>{{message}}</h5>
-        {% endfor %}
-      <form method="POST" action="login">
+    <div class="all">
+      <main class="container">
+        <div class="olu">
+          <h1>LOGIN</h1>
+        </div>
+        <form method="POST" action="login">
           {% csrf_token %}
-        <hr>
-
-        <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-        <input type="text" name="email" placeholder="Email"/>
-        <label id="icon" for="name"><i class="fas fa-user"></i></label>
-        <input type="text" name="username" placeholder="username"/>
-        <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-        <input type="password" name="password" placeholder="password"/>
-        <hr>
-        <div class="btn-block">
-          <button type="submit">Login</button>
-        </div>
-      </form>
-      <div class="btn-block">
-        <p><a href="signup">Don't have an account? Signup here</a></p>
-        </div>
+          <hr>
+        {% for message in messages%}
+        <h5>{{message}}</h5>
+        {% endfor %}
+          <div class="user-details">
+            <div class="user-input">
+              <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="user-input">
+              <input
+                name="username"
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="user-input">
+              <input
+                name="password"
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="forgot">
+              <a href="signup">Don't have an account??</a>
+            </div>
+            <div class="btn">
+              <button type="submit">
+                <h3>Sign in</h3>
+              </button>
+            </div>
+          </div>
+        </form>
+      </main>
     </div>
   </body>
 </html>
