@@ -1,31 +1,31 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<p><a href="/">Go back</a></p>
-{% for blog in view %}
+
 <ul>
             
-    <li>
-        <style>
-            h3{
-                color: red;
-            }
-        </style>
-        
-        <a style="text-decoration:none; color: red;" href="/user_posts/{{blog.id}}">
-            <h3>{{blog.user.username}}</h3>
-            <h2>{{blog.heading}}</h2>
+
+<section>
+    <p><a href="/" class="hover:text-blue-500">Go back</a></p>
+    <h2 class="text-3xl" style="text-transform: capitalize;">User: {{user.username}}</h2>
+    <hr>
+    {% for blog in view %}
+        <a style="text-decoration:none; color: black; " href="/user_posts/{{blog.id}}">
+            <h2 class="text-2xl">{{blog.heading}}</h2>
             </a>
         <h4>{{blog.time_created}}</h4>
         <h4>{{blog.body|truncatewords:10}}</h4>
         <hr>
-    </li>
+        {% empty %}
+        <h3>
+            .....mmmmm Nothing to see here 
+        </h3>
+
+        {% endfor %}
         
 </ul>
-{% empty %}
-<h3>
-    .....mmmmm Nothing to see here 
-</h3>
 
-{% endfor %}
+</section>
+
+
 {% endblock %}

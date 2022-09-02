@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myblogapp.apps.MyblogappConfig',
+    'crispy_forms',
+    'crispy_tailwind',
+
 ]
 
 MIDDLEWARE = [
@@ -132,3 +135,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'myblogapp.User'
+
+CRISPY_TEMPLATE_PACK = 'tailwind'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'

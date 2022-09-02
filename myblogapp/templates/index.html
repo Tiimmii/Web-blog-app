@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
   </head>
   <body>
     <div class="header">
@@ -28,7 +29,7 @@
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">PortFolio</a></li>
             {% if user.is_authenticated %}
-            <li><a href="login">Logout</a></li>
+            <li><a href="logout">Logout</a></li>
             {% else %}
             <li><a href="login">login</a></li>
             {% endif %}
@@ -58,14 +59,16 @@
       </section>
       
       {% if user.is_authenticated %}
+      <div class="flex">
       <div class="btn">
-        <a href="user_blog"><button>
+        <a href="user_blog"><button class="mt-2 w-full">
           <h3>Create Blog?</h3>
         </button></a>
-          <a href="changes"><button>
+          <a href="changes"><button class="mt-2 w-full">
             <h3>Edit Blogs?</h3>
           </button></a>
     </div>
+  </div>
     {% else %}
     <div class="forgot">
       <a href="signup">sign up now to add ure first blog :)</a>

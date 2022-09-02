@@ -3,6 +3,7 @@
     padding: 0;
 }
 body{
+    background-image: url(images/oluhome.jpeg);
     background-color: #f8bf9666;
     min-height: 100vh;
     justify-content: center;

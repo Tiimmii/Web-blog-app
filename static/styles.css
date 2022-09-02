@@ -97,6 +97,10 @@ section{
     padding-top: 20px;
     padding-bottom: 40px;
 }
+.flex {
+    display: flex;
+}
+
 .date{
     margin-left: 600px;
     text-align: right;

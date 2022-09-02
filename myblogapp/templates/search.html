@@ -1,9 +1,10 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<p><a href="/">Go back</a></p>
     {% if search %}
         <section>
+          <p><a href="/" class="hover:text-blue-500">Go back</a></p>
+          <hr>
             {% for blog in blog %}
             <div class="blog">
               <a style="text-decoration: none ; color: black;" href="/posts/{{blog.id}}"><h2>{{blog.user.username}}</h2></a>

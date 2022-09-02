@@ -1,20 +1,24 @@
 {% extends 'index.html' %}
+{% load tailwind_filters %}
 
 {% block content%}
-<p><a href="user_posts">Go back</a></p>
 <style>
     h5{
         color: red;
     }
 </style>
+<section>
+    <p><a href="/" class="hover:text-blue-500">Go Home</a></p>
+          <hr>
 <form method="POST" action="">
     {% csrf_token %}
     {% for message in messages%}
     <h5>{{message}}</h5>
     {% endfor %}
-   {{form.as_p}}
-    <input type="submit">
+   {{form|crispy}}
+<div class="btn">
+   <button class="w-full">submit</button>
+</div>
 </form>
-
-
+<section>
 {% endblock %}

@@ -6,24 +6,25 @@
       <title>My blog</title>
     </head>
     <body>
-        <p><a href="/">Go Home</a></p>
     <section>
+      <p><a href="/" class="hover:text-blue-500">Go Home</a></p>
+          <hr>
     <div class="blog">
-      <h2>{{blog.user.username}}</h2>
-      <h3>{{blog.heading}}</h3>
+      <h2>{{blog.user.username}}</h2><br>
+      <h2>{{blog.heading}}</h2>
       <p>
         {{blog.body}}
       </p>
       <p class="date">{{blog.time_created}}</p>
-    </section>
-    <a href="/edit_blog/{{blog.id}}"><button type="submit">edit blog</button></a>     <a href="/delete_blog/{{blog.id}}"><button type="submit">delete blog</button></a>
-        
             {% if empty %}
             <h3>
                 .....mmmmm Nothing to see here 
             </h3>
             {% endif %}
-
+    </section>
+    <div class="btn">
+      <a href="/edit_blog/{{blog.id}}"><button type="submit">edit blog</button></a>     <a href="/delete_blog/{{blog.id}}"><button type="submit">delete blog</button></a>
+    </div>
         
 
     </body>

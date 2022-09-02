@@ -52,73 +52,81 @@ def search(request):
         return render(request, 'search.html',{})
 
 def signup(request):
-    if request.method=='POST':
-        email=request.POST['email']
-        username=request.POST['username']
-        password=request.POST['password']
-        password2=request.POST['password2']
-        firstname=request.POST['firstname']
-        lastname=request.POST['lastname']
-
-    
-        if len(email)>0:
-            if len(username)>0:
-                if len(password)>0:
-                    if password==password2:
-                        if User.objects.filter(email=email).exists():
-                            messages.info(request, 'Email already exists')
-                            return redirect('signup')
-                        elif User.objects.filter(username=username).exists():
-                            messages.info(request, 'username already exists')
-                            return redirect('signup')
-                        else:
-                            user = User.objects.create_user(username=username, password=password, email=email)
-                            user.save()
-                            return redirect('login')
-                    else:
-                            messages.info(request, 'passwords do not match')
-                            return redirect('signup')
-                else:
-                    messages.info(request, 'password field required')
-                    return redirect('signup')
-            else:
-                messages.info(request, 'username field required')
-                return redirect('signup')
-            
-        else:
-            messages.info(request, 'email field required')
-            return redirect('signup')
+    if request.user.is_authenticated:
+        return redirect('/')
     else:
-        return render(request, 'signup.html')
+        if request.method=='POST':
+            email=request.POST['email']
+            username=request.POST['username']
+            password=request.POST['password']
+            password2=request.POST['password2']
+            firstname=request.POST['firstname']
+            lastname=request.POST['lastname']
+
+        
+            if len(email)>0:
+                if len(username)>0:
+                    if len(password)>0:
+                        if password==password2:
+                            if User.objects.filter(email=email).exists():
+                                messages.info(request, 'Email already exists')
+                                return redirect('signup')
+                            elif User.objects.filter(username=username).exists():
+                                messages.info(request, 'username already exists')
+                                return redirect('signup')
+                            else:
+                                user = User.objects.create_user(username=username, password=password, email=email)
+                                user.save()
+                                return redirect('login')
+                        else:
+                                messages.info(request, 'passwords do not match')
+                                return redirect('signup')
+                    else:
+                        messages.info(request, 'password field required')
+                        return redirect('signup')
+                else:
+                    messages.info(request, 'username field required')
+                    return redirect('signup')
+                
+            else:
+                messages.info(request, 'email field required')
+                return redirect('signup')
+        else:
+            return render(request, 'signup.html')
+
+
 
 def login(request):
-    if request.method=='POST':
-        email=request.POST['email']
-        username=request.POST['username']
-        password=request.POST['password']
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+        if request.method=='POST':
+            email=request.POST['email']
+            username=request.POST['username']
+            password=request.POST['password']
 
-        if len(email)>0:
-            if len(username)>0:
-                if len(password)>0:
-                    user = auth.authenticate(username=username, password=password)
+            if len(email)>0:
+                if len(username)>0:
+                    if len(password)>0:
+                        user = auth.authenticate(username=username, password=password)
 
-                    if user is None:
-                        messages.info(request,'User not found')
-                        return redirect('login')
+                        if user is None:
+                            messages.info(request,'User not found')
+                            return redirect('login')
+                        else:
+                            auth.login(request, user)
+                            return redirect('/')
                     else:
-                        auth.login(request, user)
-                        return redirect('/')
+                        messages.info(request, 'password field required')
+                        return redirect('login')
                 else:
-                    messages.info(request, 'password field required')
+                    messages.info(request, 'username field required')
                     return redirect('login')
             else:
-                messages.info(request, 'username field required')
+                messages.info(request, 'email field required')
                 return redirect('login')
         else:
-            messages.info(request, 'email field required')
-            return redirect('login')
-    else:
-        return render(request, 'login.html')
+            return render(request, 'login.html')
 
 def changes(request):
     if request.user.is_authenticated:
@@ -159,7 +167,10 @@ def delete_blog(request, pk):
     else:
         messages.info(request,'Please login')
         return redirect('login')
-    
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 
 
