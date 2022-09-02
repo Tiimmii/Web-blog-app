@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #f8bf9666;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.us h3{
+    padding: 50px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: lighter;
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+   width: 70%;
+   max-width: 1000px;
+}
+.left{
+    width: 29%;
+    height: 500px;
+    background: url(images/reg.jpg) no-repeat center / cover; 
+    border-radius: 3px; 
+    background-size:cover;
+    position:relative;
+    background-position: center; 
+}
+.right{
+    width: 29%;
+    height: 440px;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px; 
+    display: flex;
+    padding: 30px;
+}
+form .user-details .input-box{
+    width: 50%;
+    margin-top: 12px;
+    padding: 8px;
+}
+.user-details .input-box input{
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding-left: 30px;
+    font-size: 15px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+    padding: 6px;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #0e0d0e;
+}
+.register{
+    padding: 12px;
+}
+button{
+    padding: 12px;
+    margin-top: 10px;
+    width: 60%;
+    border-radius: 50px;
+    border: none;
+    background-color: #f8bf9666;
+    color: grey;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.register button:hover{
+    background-color:  #c36e3166;
+}

@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+  }
+  body {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+    padding-left: 400px;
+    background-image: url(images/olupic2.jpg);
+    background: linear-gradient(rgb(4, 9, 30));
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    margin-top: -80px;
+  }
+  .container {
+    max-width: 500px;
+    padding: 90px 60px;
+    position: relative;
+    border-radius: 25px;
+    background: transparent;
+    background-color: #fff;
+  }
+  .container form .user-details {
+    margin: 0px;
+    display: block;
+  }
+  form .user-details .user-input {
+    margin-top: 12px;
+  }
+  .user-details .user-input input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding-left: 17px;
+    border-bottom-width: 3px;
+    transition: 1s;
+  }
+  .user-details .user-input input:focus,
+  .user-details .user-input input:valid {
+    border-color: #000;
+  }
+
+  .forgot {
+    margin-top: 20px;
+    display: grid;
+    text-align: center;
+  }
+  .forgot a {
+    text-decoration: none;
+    color: grey;
+  }
+  .btn {
+    margin: auto;
+    width: 50%;
+    align-items: center;
+    cursor: pointer;
+  }
+  .btn button {
+    width: 70%;
+    margin: 20px auto 0;
+    padding: 10px;
+    margin-left: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: peachpuff;
+    transition: all 0.5s ease;
+  }
+  .btn button a {
+    text-decoration: none;
+    color: grey;
+  }
+  .btn button:hover {
+    background-color: rgb(199, 142, 92);
+  }
+
+  .all {
+    position: relative;
+  }
+  .olu {
+    font-size: 10px;
+    font-weight: 200;
+    color: grey;
+  }
